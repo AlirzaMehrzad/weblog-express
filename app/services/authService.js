@@ -13,12 +13,19 @@ exports.login = async (email, plainPassword) => {
 }
 
 exports.register = async (email, password) => {
-    const insertId = await userModel.create({
-        full_name: 'کاربر ناشناس',
-        email,
-        password,
-        role:roles().USER
-    });
-    return insertId
-   
+    const repeatEmail =  await userModel.findByEmail(email);
+    if(!repeatEmail){
+        let insertId = await userModel.create({
+            full_name: 'کاربر ناشناس',
+            email,
+            password,
+            role:roles().USER
+        });
+        return insertId;
+    }
+    return insertId = 0;
+};
+
+exports.password_confirmation = async (password) => {
+
 }

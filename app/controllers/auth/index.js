@@ -26,10 +26,11 @@ exports.doRegister = async (req, res) => {
     const {email, password, password_confirmation} = req.body;
     const newUserId = await authService.register(email, password)
     if(!newUserId){
-        req.flash('errors', ['درحال حاضر امکان ثبت نام شما وجود ندارد'])
-        return res.redirect('/auth/register')
+        req.flash('errors', ['درحال حاضر امکان ثبت نام شما وجود ندارد']);
+        return res.redirect('/auth/register');
     }
-    return res.redirect('/auth/login')
+    return res.redirect('/auth/login');
+
 };
 //----
 exports.logout = async (req, res) => {
