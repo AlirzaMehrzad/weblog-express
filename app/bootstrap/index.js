@@ -34,7 +34,8 @@ module.exports = app => {
       secret: 'aksdhqh3930ehdc03he093h',
       resave: true,
       saveUninitialized: true,
-      cookie: {maxAge: 60000}
+      cookie: {maxAge: 60000},
+      unset: 'destroy'
     }));
     app.use(flash())
     app.engine('handlebars', hbs.engine);
