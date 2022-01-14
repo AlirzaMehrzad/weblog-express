@@ -1,0 +1,64 @@
+
+            <!-- Page Headings Start -->
+            <div class="row justify-content-between align-items-center mb-10">
+
+                <!-- Page Heading Start -->
+                <div class="col-12 col-lg-auto mb-20">
+                    <div class="page-heading">
+                        <h3>ایجاد کاربر جدید</h3>
+                    </div>
+                </div><!-- Page Heading End -->
+
+            </div><!-- Page Headings End -->
+
+            <!-- Add or Edit Product Start -->
+            <div class="add-edit-product-wrap col-12">
+
+                <div class="add-edit-product-form">                        
+                     <h4 class="title">افزودن کاربر</h4>
+
+                             {{#if hasError}}
+                            <div class="alert alert-outline-secondary" role="alert">
+                                {{#each errors}}
+                                    <p>{{this}}</p>
+                                {{/each}}
+                            </div> 
+                             {{/if}}
+              
+                        
+
+                    <form action="/admin/users/store" method="POST">
+                        <div class="row">
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" name="full_name" type="text" placeholder="نام کاربر/ *"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" name="email" type="email" placeholder="ایمیل کاربر"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input class="form-control" name="password" type="password" placeholder="کلمه عبور"></div>
+            
+                            <div class="col-lg-6 col-12 mb-30">
+                                <h6>نقش کاربری</h6>
+                                <label><input value="0" type="radio" name="role" checked>کاربری</input></label>
+                                <label><input value="1" type="radio" name="role">نویسنده</input></label>
+                                <label><input value="2" type="radio" name="role">مدیر</input></label>
+                            </div>
+                        </div>
+
+                        <h4 class="title">گالری محصول</h4>
+
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <p class="form-help-text mt-0">آپلود حداکثر 800 × 800 پیکسل و حداکثر اندازه 2 مگابایت.</p>
+                                <input class="file-pond" type="file" multiple>
+                            </div>
+                        </div>
+
+                        <!-- Button Group Start -->
+                        <div class="row">
+                            <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                                <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره و انتشار</button>
+                            
+                            </div>
+                        </div><!-- Button Group End -->
+
+                    </form>
+                </div>
+
+            </div><!-- Add or Edit Product End -->

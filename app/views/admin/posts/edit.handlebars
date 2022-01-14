@@ -1,0 +1,69 @@
+
+            <!-- Page Headings Start -->
+            <div class="row justify-content-between align-items-center mb-10">
+
+                <!-- Page Heading Start -->
+                <div class="col-12 col-lg-auto mb-20">
+                    <div class="page-heading">
+                        <h3>تجارت الکترونیکی <span>/ افزودن محصول</span></h3>
+                    </div>
+                </div><!-- Page Heading End -->
+
+            </div><!-- Page Headings End -->
+
+            <!-- Add or Edit Product Start -->
+            <div class="add-edit-product-wrap col-12">
+
+                <div class="add-edit-product-form">                        
+                     <h4 class="title">ویرایش مطلب </h4>
+
+                             {{#if hasError}}
+                            <div class="alert alert-outline-secondary" role="alert">
+                                {{#each errors}}
+                                    <p>{{this}}</p>
+                                {{/each}}
+                            </div> 
+                             {{/if}}
+              
+                        
+
+                    <form action="/admin/posts/update/{{post.id}}" method="POST">
+                        <div class="row">
+                            <div class="col-lg-6 col-12 mb-30"><input value="{{post.title}}" class="form-control" name="title" type="text" placeholder="نام محصول / عنوان*"></div>
+                            <div class="col-lg-6 col-12 mb-30"><input value="{{post.slug}}" class="form-control" name="slug" type="text" placeholder="عنوان زیر محصول"></div>
+                            <div class="col-12 mb-30"><textarea name="content" class="form-control" placeholder="توضیحات محصول*">{{post.content}}</textarea></div>
+                            <div class="col-lg-6 col-12 mb-30">
+                                <select name="author" class="form-control select2">
+                                      {{#each users}}
+                                      <option value="{{this.id}}"
+                                      {{#isPostAuthor this.id}}selected{{/isPostAuthor}}>
+                                      {{this.full_name}}</option>
+                                      {{/each}}
+                                </select>
+                                <label><input value="{{postStatus.DRAFT}}" type="radio" name="status" {{#isSelectedStatus 0}}checked{{/isSelectedStatus}}>پیش نویس</input></label>
+                                <label><input value="{{postStatus.PUBLISHED}}" type="radio" name="status" {{#isSelectedStatus 2}}checked{{/isSelectedStatus}}>منتشر شده</input></label>
+                                <label><input value="{{postStatus.REVIEW}}" type="radio" name="status" {{#isSelectedStatus 1}}checked{{/isSelectedStatus}}>در حال بازبینی</input></label>
+                            </div>
+                        </div>
+
+                        <h4 class="title">گالری محصول</h4>
+
+                        <div class="product-upload-gallery row flex-wrap">
+                            <div class="col-12 mb-30">
+                                <p class="form-help-text mt-0">آپلود حداکثر 800 × 800 پیکسل و حداکثر اندازه 2 مگابایت.</p>
+                                <input class="file-pond" type="file" multiple>
+                            </div>
+                        </div>
+
+                        <!-- Button Group Start -->
+                        <div class="row">
+                            <div class="d-flex flex-wrap justify-content-end col mbn-10">
+                                <button type="submit" class="button button-outline button-primary mb-10 ml-10 mr-0">ذخیره و انتشار</button>
+                            
+                            </div>
+                        </div><!-- Button Group End -->
+
+                    </form>
+                </div>
+
+            </div><!-- Add or Edit Product End -->

@@ -1,0 +1,55 @@
+       <!-- Page Headings Start -->
+       <div class="row justify-content-between align-items-center mb-10">
+
+        <!-- Page Heading Start -->
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3>تجارت الکترونیکی <span>/ فهرست سفارشات</span></h3>
+            </div>
+        </div><!-- Page Heading End -->
+
+    </div><!-- Page Headings End -->
+
+    <div class="row">
+
+        <!--Order List Start-->
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-vertical-middle">
+                    <thead>
+                        <tr>
+                            <th>ایدی پست</th>
+                            <th>عنوان مطلب</th>
+                            <th>نویسنده</th>
+                            <th>تاریخ انتشار</th>
+                            <th>تعداد بازدید</th>
+                            <th>وضعیت</th>
+                            <th>عمل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each posts}}
+                        <tr>
+                            <td>{{this.persian_rows}}</td>
+                            <td>{{this.title}}</td>
+                            <td>{{this.full_name}}</td>
+                            <td>{{this.jalali_created_at}}</td>
+                            <td>{{this.persian_views}}</td>
+                            <td><span class="badge {{isStatus this.status}}">{{isText this.status}}</span></td>
+                            <td class="action h4">
+                                <div class="table-action-buttons">
+                                    <a class="view button button-box button-xs button-primary" href="order-details.html"><i class="zmdi zmdi-more"></i></a>
+                                    <a class="edit button button-box button-xs button-info" href="/admin/posts/edit/{{this.id}}"><i class="zmdi zmdi-edit"></i></a>
+                                    <a class="delete button button-box button-xs button-danger" href="/admin/posts/delete/{{this.id}}"><i class="zmdi zmdi-delete"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/each}}
+                
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Order List End-->
+
+    </div>

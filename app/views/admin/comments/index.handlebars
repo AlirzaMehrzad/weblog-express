@@ -1,0 +1,63 @@
+      <!-- Page Headings Start -->
+            <div class="row justify-content-between align-items-center mb-10">
+
+                <!-- Page Heading Start -->
+                <div class="col-12 col-lg-auto mb-20">
+                    <div class="page-heading">
+                        <h3>دیدگاه ها</h3>
+                    </div>
+                </div><!-- Page Heading End -->
+
+            </div><!-- Page Headings End -->
+
+            <div class="row mbn-30">
+
+        
+
+                <!-- Invoice List Start -->
+                <div class="col-12 mb-30">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0">
+
+                            <!-- Table Head Start -->
+                            <thead>
+                                <tr>
+                                    <th>تصویر</th>
+                                    <th>نویسنده</th>
+                                    <th>دیدگاه</th>
+                                    <th>در پاسخ به</th>
+                                    <th>ارسال شده</th>
+                                    <th>وضعیت</th>
+                                    <th>عمل</th>
+                                </tr>
+                            </thead><!-- Table Head End -->
+
+                            <!-- Table Body Start -->
+                            <tbody>
+                                {{#each comments}}
+                                <tr>
+                                    <td><img src="{{this.userAvatar}}"></td>
+                                    <td>{{this.user_name}}</td>
+                                    <td>{{this.comment}}</td>
+                                    <td>{{this.title}}</td>
+                                    <td>{{this.jalali_created_at}}</td>
+                                    <td><span class="badge {{commentStatus this.status}}">{{commentaStatusText this.status}}</span></td>
+                                    <td>
+                                        <div class="table-action-buttons">
+                                            <a class="view button button-box button-xs button-primary" href="/admin/comments/approve/{{this.id}}"><i class="zmdi zmdi-plus"></i></a>
+                                            <a class="edit button button-box button-xs button-info" href="/admin/comments/reject/{{this.id}}"><i class="zmdi zmdi-edit"></i></a>
+                                            <a class="delete button button-box button-xs button-danger" href="/admin/comments/delete/{{this.id}}"><i class="zmdi zmdi-delete"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            
+
+                               
+                            </tbody><!-- Table Body End -->
+
+                        </table>
+                    </div>
+                </div><!-- Invoice List End -->
+
+            </div>
