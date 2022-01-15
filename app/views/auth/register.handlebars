@@ -9,6 +9,13 @@
                             </div>
 
                             <div class="login-register-form"> 
+                                    {{#if hasError}}
+                                     <div class="alert alert-outline-secondary" role="alert">
+                                         {{#each errors}}
+                                             <p>{{this}}</p>
+                                      {{/each}}
+                                     </div> 
+                                    {{/if}}
                                 <form action="/auth/register" method="POST">
                                     <div class="row">
 

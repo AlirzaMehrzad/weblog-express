@@ -22,8 +22,9 @@ exports.register = async (email, password) => {
             role:roles().USER
         });
         return insertId;
+    }else {
+        return insertId = false
     }
-    return insertId = 0;
 };
 
 exports.password_confirmation = async (password) => {
