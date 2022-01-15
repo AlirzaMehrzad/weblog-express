@@ -40,16 +40,14 @@ exports.doRegister = async (req, res) => {
                 req.flash('errors', ['ایمیل قبلا ثبت نام شده']);
                 return res.redirect('/auth/register');
             }
-
-            if(password !== password_confirmation) {
-                req.flash('errors', ['پسورد ها یکسان نیست']);
-                return res.redirect('/auth/register');
-                }
-        
             if(password.length < 8){
                 req.flash('errors', ['طول کلمه عبور نباید کمتر از 8 کاراکتر باشد']);
                 return res.redirect('/auth/register');
             }
+            if(password !== password_confirmation) {
+                req.flash('errors', ['پسورد ها یکسان نیست']);
+                return res.redirect('/auth/register');
+                }
         }
         //----do register
         await authService.register(email, password);
