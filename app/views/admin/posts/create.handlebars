@@ -5,7 +5,7 @@
                 <!-- Page Heading Start -->
                 <div class="col-12 col-lg-auto mb-20">
                     <div class="page-heading">
-                        <h3>تجارت الکترونیکی <span>/ افزودن محصول</span></h3>
+                        <h3>تجارت الکترونیکی <span>/ افزودن پست</span></h3>
                     </div>
                 </div><!-- Page Heading End -->
 
@@ -15,17 +15,16 @@
             <div class="add-edit-product-wrap col-12">
 
                 <div class="add-edit-product-form">                        
-                     <h4 class="title">افزودن محصول</h4>
+                     <h4 class="title">افزودن پست</h4>
 
-                             {{#if hasError}}
-                            <div class="alert alert-outline-secondary" role="alert">
-                                {{#each errors}}
-                                    <p>{{this}}</p>
-                                {{/each}}
-                            </div> 
-                             {{/if}}
-              
-                        
+                    
+                   {{#if hasError}}
+                    <div class="alert alert-outline-secondary" role="alert">
+                    {{#each errors}}
+                     <p>{{this}}</p>
+                    {{/each}}
+                </div> 
+                 {{/if}}
 
                     <form action="/admin/posts/store" method="POST">
                         <div class="row">
