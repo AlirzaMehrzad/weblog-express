@@ -32,9 +32,10 @@ exports.doRegister = async (req, res) => {
     }else{
         const newUserId = await authService.register(email, password)
         if(!newUserId){
-            req.flash('errors', ['این ایمیل قبل ثبت شده است']);
+            req.flash('errors', ['این ایمیل قبلا ثبت شده است']);
             return res.redirect('/auth/register');
             }
+            
      
     }
     

@@ -5,7 +5,7 @@ const userModel = require('@models/user');
 const dateService = require('@services/dateService');
 const langService = require('@services/langService');
 //----validators
-const formValidator = require('@validators/auth');
+const formValidator = require('@validators/post');
 
 const { statuses } = require('@models/post/postStatus');
 
@@ -72,18 +72,17 @@ exports.store = async (req, res) => {
         status: req.body.status
     };
     // ---validation
-    const {title, slug, content} = req.body
-    const errors = formValidator.create(title, slug, content);
+    const errors = formValidator.create(postData);
+    console.log(errors);
     if(errors.length > 0) {
+        req.flash('errors', ['هیچ فیلدی رو خالی نذار']);
+        const users = await userModel.findAll();
+        return res.adminRender('admin/posts/create', {users});
+    }else{
         const insertId = await postModel.create(postData);
         if(insertId){
            res.redirect('/admin/posts'); 
-        };
-    }else{
-        const users = await userModel.findAll();
-        req.flash('errors', ['ایمیل یا پسورد نمیتواند خالی باشد']);
-        return res.adminRender('admin/posts/create', {users});
-      
+        }; 
     }
 
 
