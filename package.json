@@ -6,7 +6,8 @@
     "@services": "app/services",
     "@database": "database",
     "@validators": "app/validators",
-    "@middlewares": "app/middlewares"
+    "@middlewares": "app/middlewares",
+    "@presenters": "app/presenters"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
