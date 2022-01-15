@@ -10,3 +10,10 @@
                     <p>{{this.exceprt}}</p>
     </div>
 {{/each}}
+                <div class="pagination justify-content-center">
+                    <a href="/?page={{pagination.prevPage}}" class="btn btn-dark {{#showDisabaled pagination.hasPrevPage}}{{/showDisabaled}}"><i class="fa fa-angle-left"></i></a>
+                    <div class="h6 mt-2 mx-4">
+                        {{pagination.page}}از {{pagination.totalPages}}
+                    </div>
+                    <a href="/?page={{pagination.nextPage}}" class="btn btn-dark {{#showDisabaled pagination.hasNextPage}}{{/showDisabaled}}"><i class="fa fa-angle-right"></i></a>
+                </div>
