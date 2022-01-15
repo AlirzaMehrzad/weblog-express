@@ -73,7 +73,6 @@ exports.store = async (req, res) => {
     };
     // ---validation
     const errors = formValidator.create(postData);
-    console.log(errors);
     if(errors.length > 0) {
         req.flash('errors', ['هیچ فیلدی رو خالی نذار']);
         const users = await userModel.findAll();

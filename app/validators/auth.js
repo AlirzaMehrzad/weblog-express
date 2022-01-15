@@ -13,3 +13,8 @@ exports.create = (par1, par2, par3) => {
     } 
     return errors;
 };
+
+exports.registerValidation = async (par1, par2, par3) =>{
+
+   
+}

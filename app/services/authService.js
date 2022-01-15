@@ -27,6 +27,9 @@ exports.register = async (email, password) => {
     }
 };
 
-exports.password_confirmation = async (password) => {
-
+exports.findOneEmail = async (email) => {
+    const repeatEmail =  await userModel.findByEmail(email);
+    if (repeatEmail) {
+        return true
+    }
 }
